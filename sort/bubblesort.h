@@ -8,13 +8,6 @@
 #ifndef BUBBLESORT_H
 #define BUBBLESORT_H
 
-#define SWAP(x, y)\
-{\
-	x = x ^ y;\
-	y = x ^ y;\
-	x = x ^ y;\
-}
-
 void bubblesort(int *data, int n);
 
 #endif  //BUBBLESORT_H

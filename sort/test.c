@@ -12,6 +12,7 @@
 
 #include "../log.h"
 #include "bubblesort.h"
+#include "selectionsort.h"
 
 #define ARR_SIZE 50000
 
@@ -70,9 +71,11 @@ void _TEST(
 {
 	int* temp = (int*)malloc(sizeof(int)*n);
 	memcpy(temp, arr, sizeof(int) * n);
+//	print(temp);
 	long long a = clock();
 	func(temp, n);
 	long long b = clock();
+//	print(temp);
 	if(check(temp, n))
 	{
 		SUCCESS("FUN:%s, total time:%lldms", func_name, 1000 * (b - a) / CLOCKS_PER_SEC);
@@ -91,6 +94,14 @@ int main()
 	LOG("this is a sort test!");
 	int* arr = getRandData(ARR_SIZE);
 	TEST(bubblesort, arr, ARR_SIZE);
+	TEST(selectionsort, arr, ARR_SIZE);
+
+	int a = 12;
+	int b = 12;
+	SWAP(a, a);
+	printf("a=%d, b=%d", a, b);
+
+
 	free(arr);
 
 }
