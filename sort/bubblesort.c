@@ -11,12 +11,12 @@
 #include "../log.h"
 
 
-int bubblesort(int * data, int n)
+void bubblesort(int * data, int n)
 {
 	if(data == NULL)
 	{
 		ERROR("data is null!");
-		return 0;
+		return;
 	}
 
 	for(int i = 0; i < n; i++)
@@ -27,7 +27,7 @@ int bubblesort(int * data, int n)
 				SWAP(data[j], data[j + 1]);
 		}
 	}
-	return 1;
+	return;
 }
 
 

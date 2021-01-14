@@ -8,14 +8,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
+#include <string.h>
 
 #include "../log.h"
 #include "bubblesort.h"
 
-#define ARR_SIZE 50
+#define ARR_SIZE 50000
 
-
+// 创建随机序列
 __attribute__((constructor))
 void resetRandom()
 {
@@ -33,6 +33,7 @@ int* getRandData(int n)
 	return arr;
 }
 
+// 打印序列
 void print(int* arr)
 {
 	int k = 0;
@@ -49,28 +50,47 @@ void print(int* arr)
 	printf("\n");
 }
 
+// 测试方法
+int check(int* arr, int n)
+{
+	for(int i = 1; i < n; i++)
+	{
+		if(arr[i] < arr[i - 1]) return 0;
+	}
+	return 1;
+}
+#define TEST(func, arr, n) _TEST(func, arr, n, #func)
+
+void _TEST(
+		void(*func)(int*, int),
+		int *arr,
+		int n,
+		const char* func_name
+		)
+{
+	int* temp = (int*)malloc(sizeof(int)*n);
+	memcpy(temp, arr, sizeof(int) * n);
+	long long a = clock();
+	func(temp, n);
+	long long b = clock();
+	if(check(temp, n))
+	{
+		SUCCESS("FUN:%s, total time:%lldms", func_name, 1000 * (b - a) / CLOCKS_PER_SEC);
+	}
+	else
+	{
+		FAIELD("FUN:%s execute error!", func_name);
+	}
+
+	free(temp);
+	return;
+}
 
 int main()
 {
 	LOG("this is a sort test!");
-	
 	int* arr = getRandData(ARR_SIZE);
-	LOG("data pre");
-	print(arr);
-	long long a = clock();	
-	int flag = bubblesort(arr, ARR_SIZE);
-	long long b = clock();
-	if(!flag)
-	{
-		ERROR("ERROR");
-	}
-	else
-	{
-		LOG("bubblesort use %lldms", 1000 * (b - a)/ CLOCKS_PER_SEC);
-	}
-	
-	LOG("data after");
-	print(arr);
+	TEST(bubblesort, arr, ARR_SIZE);
 	free(arr);
 
 }

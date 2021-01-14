@@ -15,6 +15,6 @@
 	x = x ^ y;\
 }
 
-int bubblesort(int *data, int n);
+void bubblesort(int *data, int n);
 
 #endif  //BUBBLESORT_H

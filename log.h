@@ -29,14 +29,24 @@
 	printf("\n");\
 }
 
+#define STATE(frm, type, color, args...)\
+{\
+	printf(color("[ %-7s ]"), #type);\
+	printf(TEXTCOLOR(frm), ##args);\
+	printf("\n");\
+}
+
 #define LOG(frm, args...) MSG(frm, LOG, BLUE, ##args)
 #define WARNING(frm, args...) MSG(frm, WARNING, YELLOW, ##args)
 #define ERROR(frm, args...) MSG(frm, ERROR, RED, ##args)
-	
+#define SUCCESS(frm, args...) STATE(frm, SUCCESS, GREEN, ##args)	
+#define FAIELD(frm, args...) STATE(frm, FAIELD, RED, ##args)	
 #else
 #define LOG(frm, args...)
 #define WARNING(frm, args...)
 #define ERROR(frm, args...)
+#define SUCCESS(frm, args...)
+#define FAIELD(frm, args...)
 #endif
 
 
