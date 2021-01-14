@@ -80,11 +80,11 @@ void _TEST(
 //	print(temp);
 	if(check(temp, n))
 	{
-		SUCCESS("FUN:%s, total time:%lldms", func_name, 1000 * (b - a) / CLOCKS_PER_SEC);
+		SUCCESS("FUN:%-17s, total time:%-6lldms", func_name, 1000 * (b - a) / CLOCKS_PER_SEC);
 	}
 	else
 	{
-		FAIELD("FUN:%s execute error!", func_name);
+		FAIELD("FUN:%-17s execute error!", func_name);
 	}
 
 	free(temp);
@@ -101,6 +101,7 @@ int main()
 	TEST(insertionsort1, arr, ARR_SIZE);
 	TEST(insertionsort2, arr, ARR_SIZE);
 	TEST(shellsort, arr, ARR_SIZE);
+	TEST(shellsort1, arr, ARR_SIZE);
 	free(arr);
 
 }

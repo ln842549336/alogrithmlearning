@@ -37,3 +37,29 @@ void shellsort(int* arr, int n)
 	}
 
 }
+
+
+// 优化插入排序的部分
+void shellsort1(int* arr, int n)
+{
+	// 使用折半的分组序列
+	int gap = n/2;
+	while(gap > 0)
+	{
+		// i前面的部分为所有分组的第一个值
+		for(int i = gap; i < n; i++)
+		{
+
+			int j = i - gap;
+			int temp = arr[i];
+			while(j >= 0 && temp < arr[j])
+			{
+				arr[j + gap] = arr[j];
+				j -= gap;
+			}
+			arr[j + gap] = temp;
+		}
+		gap /= 2;
+	}
+
+}

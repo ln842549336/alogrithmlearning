@@ -10,4 +10,7 @@
 
 void shellsort(int* arr, int n);
 
+void shellsort1(int* arr, int n);
+
+
 #endif  //SHELLSORT_H
