@@ -18,13 +18,24 @@ void bubblesort(int * data, int n)
 		ERROR("data is null!");
 		return;
 	}
-
+	
 	for(int i = 0; i < n; i++)
 	{
+		int flag = 0;
 		for(int j = 0; j < n - i - 1; j++)
 		{
 			if(data[j] > data[j + 1])
+			{
 				SWAP(data[j], data[j + 1]);
+				if(!flag)
+				{
+					flag = 1;
+				}
+			}
+		}
+		if(!flag)
+		{
+			return;
 		}
 	}
 	return;

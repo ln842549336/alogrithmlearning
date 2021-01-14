@@ -13,6 +13,7 @@
 #include "../log.h"
 #include "bubblesort.h"
 #include "selectionsort.h"
+#include "insertionsort.h"
 
 #define ARR_SIZE 50000
 
@@ -95,13 +96,7 @@ int main()
 	int* arr = getRandData(ARR_SIZE);
 	TEST(bubblesort, arr, ARR_SIZE);
 	TEST(selectionsort, arr, ARR_SIZE);
-
-	int a = 12;
-	int b = 12;
-	SWAP(a, a);
-	printf("a=%d, b=%d", a, b);
-
-
+	TEST(insertionsort, arr, ARR_SIZE);
 	free(arr);
 
 }

@@ -1,4 +1,4 @@
-objs = bubblesort.o selectionsort.o
+objs = bubblesort.o selectionsort.o insertionsort.o
 
 all:sorttest
 
@@ -13,6 +13,8 @@ bubblesort.o:bubblesort.h bubblesort.c
 selectionsort.o:selectionsort.h selectionsort.c
 	gcc -g -DDebug -c selectionsort.c
 
+insertionsort.o:insertionsort.h insertionsort.c	
+	gcc -g -DDebug -c insertionsort.c
 
 .PHONY:clean
 
