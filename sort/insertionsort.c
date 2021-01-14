@@ -29,3 +29,43 @@ void insertionsort(int* arr, int n)
 		}
 	}
 }
+
+// 改进 不需要每次都交换
+void insertionsort1(int* arr, int n)
+{
+	for(int i = 1; i < n; i++)
+	{
+		int j = i - 1;
+		int temp = arr[i];
+		for(; j >= 0; j--)
+		{
+			if(temp < arr[j])
+			{
+				arr[j + 1] = arr[j];
+			}
+			else
+			{
+				break;
+			}
+		}
+		arr[j + 1] = temp;
+	}
+
+}
+
+void insertionsort2(int* arr, int n)
+{
+	for(int i = 1; i < n; i++)
+	{
+		int j = i - 1;
+		int temp = arr[i];
+		while(j >= 0 && temp < arr[j])
+		{
+			arr[j + 1] = arr[j];
+			j--;
+		}
+
+		arr[j + 1] = temp;
+	}
+
+}

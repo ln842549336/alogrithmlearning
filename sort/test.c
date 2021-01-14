@@ -1,6 +1,6 @@
 /*************************************************************************
 	> File Name: test.c
-	> Author: lining
+> Author: lining
 	> Mail: 842549336@qq.com 
 	> Created Time: 2021年01月14日 星期四 06时34分31秒
  ************************************************************************/
@@ -14,6 +14,7 @@
 #include "bubblesort.h"
 #include "selectionsort.h"
 #include "insertionsort.h"
+#include "shellsort.h"
 
 #define ARR_SIZE 50000
 
@@ -97,6 +98,9 @@ int main()
 	TEST(bubblesort, arr, ARR_SIZE);
 	TEST(selectionsort, arr, ARR_SIZE);
 	TEST(insertionsort, arr, ARR_SIZE);
+	TEST(insertionsort1, arr, ARR_SIZE);
+	TEST(insertionsort2, arr, ARR_SIZE);
+	TEST(shellsort, arr, ARR_SIZE);
 	free(arr);
 
 }

@@ -9,6 +9,7 @@
 #define INSERTIONSORT_H
 
 void insertionsort(int* arr, int n);
-
+void insertionsort1(int* arr, int n);
+void insertionsort2(int* arr, int n);
 
 #endif  //INSERTIONSORT_H

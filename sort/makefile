@@ -1,4 +1,5 @@
-objs = bubblesort.o selectionsort.o insertionsort.o
+objs = bubblesort.o selectionsort.o insertionsort.o\
+	   shellsort.o
 
 all:sorttest
 
@@ -15,6 +16,10 @@ selectionsort.o:selectionsort.h selectionsort.c
 
 insertionsort.o:insertionsort.h insertionsort.c	
 	gcc -g -DDebug -c insertionsort.c
+
+shellsort.o:shellsort.h shellsort.c
+	gcc -g -DDebug -c shellsort.c
+
 
 .PHONY:clean
 
