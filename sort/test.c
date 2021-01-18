@@ -15,6 +15,7 @@
 #include "selectionsort.h"
 #include "insertionsort.h"
 #include "shellsort.h"
+#include "quicksort.h"
 
 #define ARR_SIZE 50000
 
@@ -102,6 +103,7 @@ int main()
 	TEST(insertionsort2, arr, ARR_SIZE);
 	TEST(shellsort, arr, ARR_SIZE);
 	TEST(shellsort1, arr, ARR_SIZE);
+	TEST(quicksort, arr, ARR_SIZE);
 	free(arr);
 
 }

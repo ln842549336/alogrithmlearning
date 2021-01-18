@@ -1,5 +1,5 @@
 objs = bubblesort.o selectionsort.o insertionsort.o\
-	   shellsort.o
+	   shellsort.o quicksort.o
 
 all:sorttest
 
@@ -20,6 +20,8 @@ insertionsort.o:insertionsort.h insertionsort.c
 shellsort.o:shellsort.h shellsort.c
 	gcc -g -DDebug -c shellsort.c
 
+quicksort.o:quicksort.h quicksort.c
+	gcc -g -DDebug -c quicksort.c
 
 .PHONY:clean
 
